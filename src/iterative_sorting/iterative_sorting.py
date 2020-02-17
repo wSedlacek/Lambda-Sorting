@@ -1,24 +1,54 @@
-# TO-DO: Complete the selection_sort() function below
-def selection_sort(arr):
-    # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
-        cur_index = i
+from typing import List
+
+
+def swap(arr: List[int], index1: int, index2: int):
+    arr[index1], arr[index2] = arr[index2], arr[index1]
+
+
+def insertion_sort(arr: List[int]):
+    if (len(arr) < 2):
+        return arr
+
+    first, *rest = arr
+    sorted: List[int] = [first]
+    for sorting in rest:
+        sorted.insert(0, sorting)
+        for i in range(0, len(sorted) - 1):
+            if sorted[i] > sorted[i+1]:
+                swap(sorted, i, i+1)
+            else:
+                break
+
+    return sorted
+
+
+def bubble_sort(arr: List[int]):
+    first_run = True
+    swap_occurred = False
+
+    while first_run or swap_occurred:
+        first_run = False
+        swap_occurred = False
+
+        for i in range(0, len(arr) - 1):
+            if arr[i] > arr[i+1]:
+                swap(arr, i, i+1)
+                swap_occurred = True
+    return arr
+
+
+def selection_sort(arr: List[int]):
+    for cur_index in range(0, len(arr) - 1):
         smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
+        for i in range(cur_index, len(arr)):
+            if arr[i] < arr[smallest_index]:
+                smallest_index = i
 
-        # TO-DO: swap
-
-    return arr
-
-
-# TO-DO:  implement the Bubble Sort function below
-def bubble_sort(arr):
+        swap(arr, cur_index, smallest_index)
 
     return arr
 
 
-# STRETCH: implement the Count Sort function below
-def count_sort(arr, maximum=-1):
+def count_sort(arr: List[int], maximum=-1):
 
     return arr
