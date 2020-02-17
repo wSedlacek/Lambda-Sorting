@@ -2,7 +2,7 @@
 
 In this two day project, you will be implementing many different solutions to the same problem: sort a list of integers in ascending order. You will also be using your newfound knowledge of complexity analysis to evaluate each implementation for efficiency.
 
-# No Googling for Code
+## No Googling for Code
 
 For the sorting module, it's OK to Google for things like this:
 
@@ -22,25 +22,25 @@ Your task is to take a simple problem (sort an list of ints) and a pre-defined p
 
 That being said, please still use the 20 minute rule :slightly_smiling_face:
 
-# Part 1
+## Part 1
 
-## MVP Tasks
+### MVP Tasks
 
 - Open up the [iterative_sorting](src/iterative_sorting) directory
 - Read through the descriptions of the `bubble_sort` and `selection_sort` algorithms
 - Implement `bubble_sort` and `selection_sort` in [iterative_sorting.py](src/iterative_sorting/iterative_sorting.py)
 - Test your implementation by running `test_iterative.py`
 
-# Part 2
+## Part 2
 
-## MVP Tasks
+### MVP Tasks
 
 - Open up the [recursive_sorting](src/recursive_sorting) directory
 - Read through the descriptions of the `merge_sort` algorithm
 - Implement `merge_sort` in [recursive_sorting.py](src/recursive_sorting/recursive_sorting.py)
 - Test your implementation by running `test_recursive.py`
 
-## Stretch Goals
+### Stretch Goals
 
 - Implement all the methods in the `searching.py` file in the `searching` directory.
 - Implement the `count_sort` algorithm in the `iterative_sorting` directory.
