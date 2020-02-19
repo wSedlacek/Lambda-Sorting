@@ -1,30 +1,49 @@
-# STRETCH: implement Linear Search				
-def linear_search(arr, target):
-  
-  # TO-DO: add missing code
-
-   return -1   # not found
+# STRETCH: implement Linear Search
+from typing import List
 
 
-# STRETCH: write an iterative implementation of Binary Search 
-def binary_search(arr, target):
+def linear_search(arr: List[int], target: int):
+    for i in range(0, len(arr)):
+        if arr[i] == target:
+            return i
 
-  if len(arr) == 0:
-    return -1 # array empty
-    
-  low = 0
-  high = len(arr)-1
-
-  # TO-DO: add missing code
-
-  return -1 # not found
+    return -1
 
 
-# STRETCH: write a recursive implementation of Binary Search 
-def binary_search_recursive(arr, target, low, high):
-  
-  middle = (low+high)//2
+def binary_search(arr: List[int], target: int):
+    if len(arr) == 0:
+        return -1
 
-  if len(arr) == 0:
-    return -1 # array empty
-  # TO-DO: add missing if/else statements, recursive calls
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        middle = (low + high) // 2
+
+        if arr[middle] == target:
+            return middle
+
+        if arr[middle] < target:
+            low += 1
+        else:
+            high -= 1
+
+    return -1
+
+
+def binary_search_recursive(arr: List[int], target: int, low: int = 0, high: int = None):
+    if high is None:
+        high = len(arr) - 1
+
+    if len(arr) == 0 or low >= high:
+        return -1
+
+    middle = (low + high) // 2
+    if arr[middle] == target:
+        return middle
+
+    if arr[middle] < target:
+        return binary_search_recursive(arr, target, low + 1, high)
+
+    else:
+        return binary_search_recursive(arr, target, low, high - 1)
