@@ -49,6 +49,31 @@ def selection_sort(arr: List[int]):
     return arr
 
 
-def count_sort(arr: List[int], maximum=-1):
+def count_sort(arr: List[int]):
+    maximum = -1
+    minimum = 0
 
-    return arr
+    for item in arr:
+        maximum = item if item > maximum else maximum
+        minimum = item if item < minimum else minimum
+
+    if minimum < 0:
+        return 'Error, negative numbers not allowed in Count Sort'
+
+    count = [0] * (maximum + 2)
+    output = [0] * len(arr)
+
+    for item in arr:
+        count[item] += 1
+
+    for index in range(len(count)):
+        count[index] += count[index - 1]
+
+    for index in range(len(arr)):
+        current_val = arr[index]
+        count[current_val] -= 1
+
+        new_index = count[current_val]
+        output[new_index] = current_val
+
+    return output
